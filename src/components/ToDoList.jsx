@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SingleToDo from "./SingleToDo";
 import AddToDo from "./AddToDo";
+import { ListeninhaltContext } from "../context/Context";
 
 const ToDoList = () => {
-	const [alleToDos, setAlleToDos] = useState([]);
+	const { alleToDos, setAlleToDos } = useContext(ListeninhaltContext);
+
 	return (
 		<section>
 			<h1>Meine Todo's</h1>
@@ -12,10 +14,11 @@ const ToDoList = () => {
 				<SingleToDo
 					einzelnesToDoProp={einzelnesToDo.beschreibung}
 					key={index}
+					index={index}
 				/>
 			))}
 
-			<AddToDo hinzufuegen={setAlleToDos} />
+			<AddToDo />
 		</section>
 	);
 };

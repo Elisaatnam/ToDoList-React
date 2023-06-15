@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ListeninhaltContext } from "../context/Context";
 
-const AddToDo = props => {
+const AddToDo = () => {
+	const { alleToDos, setAlleToDos } = useContext(ListeninhaltContext);
+
 	const [inhalt, setInhalt] = useState("");
 
 	const handleAddToDo = event => {
 		event.preventDefault(); // Prevent form submission
 
 		if (inhalt.trim() !== "") {
-			props.hinzufuegen(prev => [{ beschreibung: inhalt }, ...prev]);
+			setAlleToDos(prev => [{ beschreibung: inhalt }, ...prev]);
 			setInhalt(""); // Clear the input field
 		}
 	};

@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ListeninhaltContext } from "../context/Context";
 
 const SingleToDo = props => {
+	const { alleToDos, setAlleToDos } = useContext(ListeninhaltContext);
+
 	const [istErledigt, setIstErledigt] = useState(false);
-	const [loeschen, setLoeschen] = useState(false);
 
 	const erledigt = () => {
 		setIstErledigt(prev => !prev);
 	};
 
-	const deleteToDo = () => {
-		setLoeschen(true);
+	const deleteToDo = id => {
+		const neueListe = alleToDos.filter((todo, index) => index !== id);
+		setAlleToDos(neueListe);
 	};
 
 	return (
 		<article>
-			<div
-				style={loeschen ? { display: "none" } : {}}
-				className='single-to-do-div'
-			>
+			<div className='single-to-do-div'>
 				<div>
 					<input type='checkbox' onClick={erledigt} />
 					<p
@@ -30,7 +30,7 @@ const SingleToDo = props => {
 
 				<img
 					className='waste'
-					onClick={deleteToDo}
+					onClick={() => deleteToDo(props.index)}
 					width='50'
 					height='50'
 					src='https://img.icons8.com/ios-filled/50/waste.png'
