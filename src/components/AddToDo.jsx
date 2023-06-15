@@ -3,10 +3,6 @@ import { useState } from "react";
 const AddToDo = props => {
 	const [inhalt, setInhalt] = useState("");
 
-	const handleInputChange = event => {
-		setInhalt(event.target.value);
-	};
-
 	const handleAddToDo = event => {
 		event.preventDefault(); // Prevent form submission
 
@@ -21,7 +17,7 @@ const AddToDo = props => {
 			<input
 				type='text'
 				value={inhalt}
-				onChange={handleInputChange}
+				onChange={event => setInhalt(event.target.value)}
 				placeholder='To Do eingeben..'
 				className='to-to-input'
 			/>
