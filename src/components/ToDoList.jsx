@@ -5,7 +5,7 @@ import AddToDo from "./AddToDo";
 const ToDoList = () => {
 	const [alleToDos, setAlleToDos] = useState([]);
 	return (
-		<>
+		<section>
 			<h1>Meine Todo's</h1>
 
 			{alleToDos.map((einzelnesToDo, index) => (
@@ -16,7 +16,7 @@ const ToDoList = () => {
 			))}
 
 			<AddToDo hinzufuegen={setAlleToDos} />
-		</>
+		</section>
 	);
 };
 

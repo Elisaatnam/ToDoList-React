@@ -1,9 +1,32 @@
+section {
+	text-align: center;
+}
+article {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+	font-size: 4vw;
+}
+
 .to-do-p {
 	display: inline-block;
-	margin-right: 10vw;
 }
 
 .waste {
 	height: 2vh;
 	width: auto;
+}
+
+.single-to-do-div {
+	width: 50vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.to-to-input {
+	width: 42vw;
 }

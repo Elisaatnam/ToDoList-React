@@ -2,17 +2,31 @@ import { useState } from "react";
 
 const AddToDo = props => {
 	const [inhalt, setInhalt] = useState("");
+
+	const handleInputChange = event => {
+		setInhalt(event.target.value);
+	};
+
+	const handleAddToDo = event => {
+		event.preventDefault(); // Prevent form submission
+
+		if (inhalt.trim() !== "") {
+			props.hinzufuegen(prev => [{ beschreibung: inhalt }, ...prev]);
+			setInhalt(""); // Clear the input field
+		}
+	};
+
 	return (
-		<>
-			<input type='text' onChange={event => setInhalt(event.target.value)} />
-			<button
-				onClick={() =>
-					props.hinzufuegen(prev => [{ beschreibung: inhalt }, ...prev])
-				}
-			>
-				Speichern
-			</button>
-		</>
+		<form onSubmit={handleAddToDo}>
+			<input
+				type='text'
+				value={inhalt}
+				onChange={handleInputChange}
+				placeholder='To Do eingeben..'
+				className='to-to-input'
+			/>
+			<button type='submit'>Speichern</button>
+		</form>
 	);
 };
 

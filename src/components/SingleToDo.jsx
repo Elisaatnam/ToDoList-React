@@ -13,15 +13,21 @@ const SingleToDo = props => {
 	};
 
 	return (
-		<>
-			<div style={loeschen ? { display: "none" } : {}}>
-				<input type='checkbox' onClick={erledigt} />
-				<p
-					className='to-do-p'
-					style={istErledigt ? { textDecoration: "line-through" } : {}}
-				>
-					{props.einzelnesToDoProp}
-				</p>
+		<article>
+			<div
+				style={loeschen ? { display: "none" } : {}}
+				className='single-to-do-div'
+			>
+				<div>
+					<input type='checkbox' onClick={erledigt} />
+					<p
+						className='to-do-p'
+						style={istErledigt ? { textDecoration: "line-through" } : {}}
+					>
+						{props.einzelnesToDoProp}
+					</p>
+				</div>
+
 				<img
 					className='waste'
 					onClick={deleteToDo}
@@ -31,7 +37,7 @@ const SingleToDo = props => {
 					alt='waste'
 				/>
 			</div>
-		</>
+		</article>
 	);
 };
 
