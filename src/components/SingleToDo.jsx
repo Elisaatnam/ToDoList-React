@@ -2,17 +2,17 @@ import { useContext, useState } from "react";
 import { ListeninhaltContext } from "../context/Context";
 
 const SingleToDo = props => {
-	const { alleToDos, setAlleToDos } = useContext(ListeninhaltContext);
+	const { alleToDos, setAlleToDos } = useContext(ListeninhaltContext); // Zugriff auf den Zustand der Todos und die Funktion, um sie zu aktualisieren
 
-	const [istErledigt, setIstErledigt] = useState(false);
+	const [istErledigt, setIstErledigt] = useState(false); // Zustand, um den Erledigt-Status des Todos zu verfolgen
 
 	const erledigt = () => {
-		setIstErledigt(prev => !prev);
+		setIstErledigt(prev => !prev); // Funktion zum Umkehren des Erledigt-Status
 	};
 
 	const deleteToDo = id => {
-		const neueListe = alleToDos.filter((todo, index) => index !== id);
-		setAlleToDos(neueListe);
+		const neueListe = alleToDos.filter((todo, index) => index !== id); // Filtern der Todos, um das zu löschende Todo anhand des Index auszuschließen
+		setAlleToDos(neueListe); // Aktualisierung des Zustands mit der neuen Liste der Todos
 	};
 
 	return (
@@ -22,7 +22,7 @@ const SingleToDo = props => {
 					<input type='checkbox' onClick={erledigt} />
 					<p
 						className='to-do-p'
-						style={istErledigt ? { textDecoration: "line-through" } : {}}
+						style={istErledigt ? { textDecoration: "line-through" } : {}} // Hinzufügen einer Durchstreichung, wenn das Todo erledigt ist
 					>
 						{props.einzelnesToDoProp}
 					</p>
@@ -30,7 +30,7 @@ const SingleToDo = props => {
 
 				<img
 					className='waste'
-					onClick={() => deleteToDo(props.index)}
+					onClick={() => deleteToDo(props.index)} // Aufruf der deleteToDo-Funktion mit dem Index des Todos als Argument
 					width='50'
 					height='50'
 					src='https://img.icons8.com/ios-filled/50/waste.png'

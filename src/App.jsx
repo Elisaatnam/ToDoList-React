@@ -4,13 +4,11 @@ import { ListeninhaltContext } from "./context/Context";
 import { useState } from "react";
 
 function App() {
-	const [alleToDos, setAlleToDos] = useState([]);
+	const [alleToDos, setAlleToDos] = useState([]); // Zustand für die Liste der Todos und die Funktion, um sie zu aktualisieren
 	return (
-		<>
-			<ListeninhaltContext.Provider value={{ alleToDos, setAlleToDos }}>
-				<ToDoList />
-			</ListeninhaltContext.Provider>
-		</>
+		<ListeninhaltContext.Provider value={{ alleToDos, setAlleToDos }}>
+			<ToDoList />
+		</ListeninhaltContext.Provider>
 	);
 }
 

@@ -2,16 +2,17 @@ import { useContext, useState } from "react";
 import { ListeninhaltContext } from "../context/Context";
 
 const AddToDo = () => {
-	const { alleToDos, setAlleToDos } = useContext(ListeninhaltContext);
+	const { alleToDos, setAlleToDos } = useContext(ListeninhaltContext); // Zugriff auf den Zustand der Todos und die Funktion, um sie zu aktualisieren
 
-	const [inhalt, setInhalt] = useState("");
+	const [inhalt, setInhalt] = useState(""); // Zustand für den Inhalt des Eingabefeldes
 
 	const handleAddToDo = event => {
-		event.preventDefault(); // Prevent form submission
+		event.preventDefault(); // Verhindert das Absenden des Formulars
 
 		if (inhalt.trim() !== "") {
-			setAlleToDos(prev => [{ beschreibung: inhalt }, ...prev]);
-			setInhalt(""); // Clear the input field
+			// Überprüfung, ob der Inhalt nicht leer ist
+			setAlleToDos(prev => [{ beschreibung: inhalt }, ...prev]); // Hinzufügen eines neuen Todos zum Zustand
+			setInhalt(""); // Leeren des Eingabefeldes
 		}
 	};
 
