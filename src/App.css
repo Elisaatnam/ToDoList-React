@@ -1,5 +1,14 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 section {
+	min-height: 100vh;
 	text-align: center;
+	font-family: sans-serif;
+	background-color: rgba(128, 128, 128, 0.432);
 }
 article {
 	display: flex;
@@ -9,15 +18,21 @@ article {
 
 h1 {
 	font-size: 4vw;
+	margin-bottom: 5vh;
+	padding: 1vh;
 }
 
 .to-do-p {
 	display: inline-block;
+	margin-left: 0.3vw;
+	font-size: 1.5vw;
 }
 
-.waste {
+.waste,
+.edit {
 	height: 2vh;
 	width: auto;
+	margin-left: 1vw;
 }
 
 .single-to-do-div {
@@ -25,8 +40,46 @@ h1 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 1.5vh;
 }
 
 .to-to-input {
-	width: 42vw;
+	width: 45vw;
+	padding: 0.75vh;
+	border-radius: 10px;
+	border: none;
+}
+
+button {
+	padding: 0.75vh;
+	border-radius: 10px;
+	border: none;
+}
+
+/* Edit Section */
+
+.edit-section {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(196, 196, 196, 0.695);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.edit-section .inner {
+	background-color: gray;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 50px;
+	border-radius: 10px;
+}
+
+.edit-section .inner input {
+	padding: 1vh;
 }
